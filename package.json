@@ -8,12 +8,12 @@
   "exports": {
     ".": {
       "require": {
-        "default": "./bundled/lib/commonjs/index.js",
-        "types": "./bundled/lib/commonjs/index.d.ts"
+        "types": "./bundled/lib/commonjs/index.d.ts",
+        "default": "./bundled/lib/commonjs/index.js"
       },
       "import": {
-        "default": "./bundled/lib/esm/index.esm.js",
-        "types": "./bundled/lib/esm/index.d.ts"
+        "types": "./bundled/lib/esm/index.d.ts",
+        "default": "./bundled/lib/esm/index.esm.js"
       }
     }
   },
@@ -30,8 +30,8 @@
     "pretranspile": "pnpm clean",
     "transpile": "tsc -p source",
     "bundle:esm": "node build.mjs",
-    "bundle:dts": "dts-bundle-generator -o bundled/lib/commonjs/index.d.ts --project source/tsconfig.json source/index.ts",
-    "postbundle:dts": "cp bundled/lib/commonjs/index.d.ts bundled/lib/esm/index.d.ts",
+    "bundle:dts": "dts-bundle-generator -o bundled/lib/esm/index.d.ts --project source/tsconfig.json source/index.ts",
+    "postbundle:dts": "cp bundled/lib/esm/index.d.ts bundled/lib/commonjs/index.d.ts",
     "prebundle": "pnpm clean",
     "bundle": "pnpm bundle:esm && pnpm bundle:dts",
     "lint": "eslint source --ext ts --format codeframe",
@@ -63,18 +63,21 @@
     "url": "https://github.com/euberdeveloper/typedoc-plugin-ga/issues"
   },
   "homepage": "https://github.com/euberdeveloper/typedoc-plugin-ga",
-  "devDependencies": {
-    "@euberdeveloper/eslint-plugin": "^2.7.0",
-    "@release-it/conventional-changelog": "^8.0.1",
-    "@types/node": "^22.3.0",
-    "dotenv-cli": "^7.4.2",
-    "dts-bundle-generator": "^9.5.1",
-    "esbuild": "^0.23.0",
-    "release-it": "^17.6.0",
-    "shx": "^0.3.4",
-    "typescript": "^5.5.4"
-  },
+  "packageManager": "pnpm@9.9.0+sha512.60c18acd138bff695d339be6ad13f7e936eea6745660d4cc4a776d5247c540d0edee1a563695c183a66eb917ef88f2b4feb1fc25f32a7adcadc7aaf3438e99c1",
   "peerDependencies": {
-    "typedoc": "^0.26.5"
+    "typedoc": "^0.27.6"
+  },
+  "devDependencies": {
+    "@release-it/conventional-changelog": "^9.0.4",
+    "@types/node": "^22.10.2",
+    "dotenv-cli": "^8.0.0",
+    "dts-bundle-generator": "^9.5.1",
+    "esbuild": "^0.24.2",
+    "release-it": "^17.11.0",
+    "shx": "^0.3.4",
+    "typescript": "5.3"
+  },
+  "dependencies": {
+    "@euberdeveloper/eslint-plugin": "2.7.0"
   }
 }
