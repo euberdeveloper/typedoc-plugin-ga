@@ -1,4 +1,11 @@
+# Changelog
 
+## [1.0.5](https://github.com/euberdeveloper/typedoc-plugin-ga/compare/1.0.4...1.0.5) (2024-12-30)
+
+
+### Bug Fixes
+
+* fix for typedoc 0.27 ([3fbbe77](https://github.com/euberdeveloper/typedoc-plugin-ga/commit/3fbbe7747288198a998a71cec66292f7a9b5785d)), closes [#1](https://github.com/euberdeveloper/typedoc-plugin-ga/issues/1)
 
 ## [1.0.4](https://github.com/euberdeveloper/typedoc-plugin-ga/compare/1.0.3...1.0.4) (2024-08-25)
 
