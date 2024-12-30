@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import { build } from 'esbuild';
 
-import packageJson from './package.json' assert { type: 'json' };
+import packageJson from './package.json' with { type: 'json' };
 
 function getExternalDependencies(allow = []) {
     const deps = packageJson.dependencies ? Object.keys(packageJson.dependencies).filter(dep => !allow.includes(dep)) : [];
