@@ -7,16 +7,17 @@ function addGaOptionParameter(app: Application): void {
         type: ParameterType.String
     });
     app.options.addDeclaration({
-        name: 'gaCookieConsentCategory',
-        help: 'If set, the tracking script will be controlled by the typedoc-cookie-consent plugin',
-        type: ParameterType.String
+        name: 'gaProperties',
+        help: 'Optional properties that will be attached to the Google Analytics script element',
+        type: ParameterType.Object,
+        defaultValue: {}
     });
 }
 
 function addGaScript(app: Application): void {
     app.renderer.hooks.on('body.end', () => {
         const gaID = app.options.getValue('gaID') as string;
-        const gaCategory = app.options.getValue('gaCookieConsentCategory') as string;
+        const gaProperties = app.options.getValue('gaProperties') as object | null;
         if (gaID) {
             const script = `
 window.dataLayer = window.dataLayer || [];
@@ -29,7 +30,7 @@ gtag('config', '${gaID}');
                     async: true,
                     src: `https://www.googletagmanager.com/gtag/js?id=${gaID}`
                 }),
-                JSX.createElement('script', gaCategory ? { type: "text/plain", ["data-category"]: gaCategory } : null, JSX.createElement(JSX.Raw, { html: script }))
+                JSX.createElement('script', gaProperties, JSX.createElement(JSX.Raw, { html: script }))
             ]);
         }
         return JSX.createElement(JSX.Fragment, null);
