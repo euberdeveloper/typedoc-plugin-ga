@@ -6,11 +6,18 @@ function addGaOptionParameter(app: Application): void {
         help: 'Set the Google Analytics tracking ID and activate tracking code',
         type: ParameterType.String
     });
+    app.options.addDeclaration({
+        name: 'gaProperties',
+        help: 'Optional properties that will be attached to the Google Analytics script element',
+        type: ParameterType.Object,
+        defaultValue: {}
+    });
 }
 
 function addGaScript(app: Application): void {
     app.renderer.hooks.on('body.end', () => {
         const gaID = app.options.getValue('gaID') as string;
+        const gaProperties = app.options.getValue('gaProperties') as object | null;
         if (gaID) {
             const script = `
 window.dataLayer = window.dataLayer || [];
@@ -23,7 +30,7 @@ gtag('config', '${gaID}');
                     async: true,
                     src: `https://www.googletagmanager.com/gtag/js?id=${gaID}`
                 }),
-                JSX.createElement('script', null, JSX.createElement(JSX.Raw, { html: script }))
+                JSX.createElement('script', gaProperties, JSX.createElement(JSX.Raw, { html: script }))
             ]);
         }
         return JSX.createElement(JSX.Fragment, null);

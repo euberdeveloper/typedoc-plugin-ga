@@ -14,6 +14,7 @@ This plugin is needed after version [v0.26.0](https://github.com/TypeStrong/type
 | Option                  | Default | Description                                                                                |
 | ----------------------- | ------- | ------------------------------------------------------------------------------------------ |
 | gaID     | `undefined`  | The `gaID` of your Google Analytics |
+| gaProperties | `{}`     | Optional properties that will be attached to the Google Analytics script element |
 
 ## Changelog
 
