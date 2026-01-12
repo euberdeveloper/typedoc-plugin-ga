@@ -73,7 +73,7 @@
     "dotenv-cli": "^8.0.0",
     "dts-bundle-generator": "^9.5.1",
     "esbuild": "^0.24.2",
-    "release-it": "^17.11.0",
+    "release-it": "^19.2.3",
     "shx": "^0.3.4",
     "typescript": "5.3"
   },
