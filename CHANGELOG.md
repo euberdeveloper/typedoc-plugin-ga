@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.1.0](https://github.com/euberdeveloper/typedoc-plugin-ga/compare/1.0.5...1.1.0) (2026-01-12)
+
+
+### Features
+
+* add gaProperties option for optional Google Analytics properties ([4107aad](https://github.com/euberdeveloper/typedoc-plugin-ga/commit/4107aad34efd9fe9da1cdcef9289a1167727ff10))
+
 ## [1.0.5](https://github.com/euberdeveloper/typedoc-plugin-ga/compare/1.0.4...1.0.5) (2024-12-30)
 
 
